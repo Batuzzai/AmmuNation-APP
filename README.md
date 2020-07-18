@@ -1,14 +1,12 @@
-# A Blank PhoneGap App
+# AmmuNation Phonegap APP
 
-## Usage
+_Fase 2 Diseño web y movil, integración de la API [PHP](https://github.com/Batuzzai/AmmuNation-PHP/)._
 
-### PhoneGap CLI
+## Uso
 
-    $ phonegap create my-app --template blank
+* [JQuery](https://jquery.com/) - Code
+* [NodeJS](https://nodejs.org/) - Plugins
+* [Phonegap](https://phonegap.com/) - App build 
 
-### Desktop
-
-In your browser, open the file:
-
-    /www/index.html
-
+___
+Inspirada en Ammu-Nation RockstarGames
