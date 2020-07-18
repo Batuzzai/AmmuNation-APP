@@ -1,0 +1,11 @@
+{
+  "background_color": "#FFF",
+  "display": "standalone",
+  "name": "Ammu-Nation",
+  "short_name": "Ammu-Nation",
+  "version": "com.batuzzai.ammunation",
+  "description": "Emulador de la pagina Ammu-Nation de RockstarGames.",
+  "author": "Gonzalo Salazar",
+  "icons": [],
+  "start_url": "index.html"
+}

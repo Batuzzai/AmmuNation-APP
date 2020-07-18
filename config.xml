@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.batuzzai.ammunation" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+    <name>Ammu-Nation</name>
+	<plugin name="cordova-plugin-whitelist" />
+	<plugin spec="https://github.com/apache/cordova-plugin-splashscreen.git" source="git" />
+	<preference name="AutoHideSplashScreen" value="true"/>
+	<preference name="SplashScreenDelay" value="3000" />
+    <description>
+        Emulador de la pagina Ammu-Nation de RockstarGames.
+    </description>
+    <author email="gonzalo.salazar1@mail.udp.cl" href="http://github.com/Batuzzai">
+        Gonzalo Salazar
+    </author>
+    <content src="index.html" />
+    <access origin="*" />
+	<access origin="*" launch-external="yes" />
+</widget>

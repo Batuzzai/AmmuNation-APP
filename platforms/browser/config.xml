@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.batuzzai.ammunation" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:gap="http://phonegap.com/ns/1.0">
+    <name>Ammu-Nation</name>
+    <description>
+        Emulador de la pagina Ammu-Nation de RockstarGames.
+    </description>
+    <author email="gonzalo.salazar1@mail.udp.cl" href="http://github.com/Batuzzai">
+        Gonzalo Salazar
+    </author>
+    <content src="index.html" />
+    <access origin="*" />
+    <access launch-external="yes" origin="*" />
+    <preference name="AutoHideSplashScreen" value="true" />
+    <preference name="SplashScreenDelay" value="3000" />
+</widget>

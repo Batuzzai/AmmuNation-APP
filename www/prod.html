@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta http-equiv="Content-Security-Policy" content=" default-src * data: blob: filesystem: about: ws: 'unsafe-inline' 'unsafe-eval';
+        script-src * data: blob: 'unsafe-inline' 'unsafe-eval';
+        connect-src * data: blob: 'unsafe-inline';
+        img-src * data: blob: ;
+        style-src * data: blob: 'unsafe-inline';
+        font-src * data: blob: 'unsafe-inline';
+        ">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+        <title>Ammu-Nation</title>
+        <link rel='icon' href='assets/img/page/favicon.ico' type='image/x-icon' sizes="16x16" />
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+        <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    </head>
+
+    <body class="colorfondo">
+        
+        <header>
+            <div class="navMenu rounded-bottom">
+                <img class="float-left logo-izq img-fluid" src="assets/img/page/ammu.png">
+                <img class="float-right logo-der img-fluid" src="assets/img/page/ammu.png">
+                <h1>AMMU✰NATION</h1>
+                <nav class="navbar menu">
+                    <ul class="mr-auto">
+                        <li><a class="nav-item" href="index.html">Inicio</a></li>
+                        <li><a class="nav-item" href="informacion.html">Información</a></li>
+                    </ul>
+                    <ul class="mx-auto">
+                                            <li><a class="nav-item" href="login.html">Iniciar sesión</a></li>
+                                        </ul>
+                    <ul class="ml-auto">
+                        <li><a class="nav-item" href="carrito.html">Carrito</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <main>
+            <div class="prod-info container">
+                <div class="prod-name" id="nombre">
+                </div>
+                <div class="container" id="imagen">    
+                </div>
+                </div>
+                <div class="prod-desc right-content" id="descripcion">
+                </div>
+                <div class="prod-precio">
+                <h2>Precio: </h2><h1 class="precioGTA" id="precio"></h1>
+                </div>            
+            </div>
+                <div class="ml-auto">
+                    <form action="http://ec2-34-232-68-85.compute-1.amazonaws.com/api/agregarCarro/" id="form" class="form" method="POST">
+                    </form>
+                </div>
+
+        </main>
+
+        <script>
+            $(function(){
+                    $.ajax({
+                        url: "http://ec2-34-232-68-85.compute-1.amazonaws.com/api/producto/?prod="+window.location.hash.substr(1),
+                        data: {},
+                        dataType: 'json',
+                        success: function( result ) {
+                            $("#nombre").append('<h1>'+result['nombre']+'<h1>');
+                            $("#imagen").append('<img class="img-fluid" src='+result['img']+'>');
+                            $("#descripcion").append('<p>'+result['desc']+'</p>');
+                            $("#precio").append('$'+result['precio']);
+                            $("#form").append('<input type="hidden" name="producto" value='+result['id']+'/><hr>Cantidad: <input type="number" name="cantidad" value="1"/><br><br><input type="submit" class="btn btn-primary btn-md" value="Añadir al carrito"/>');
+                            
+                        }
+                    });
+                });
+        </script>
+
+        <script>
+            $("#form").submit(function(e) {
+
+                e.preventDefault();
+
+                var form = $(this);
+                var url = form.attr('action');
+
+                $.ajax({
+                    type: "POST",
+                    url: url,
+                    data: form.serialize(),
+                    success: function(data)
+                    {
+                        alert(data);
+                    }
+                    });
+            });
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+    </body>
+
+</html>

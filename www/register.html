@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Security-Policy" content=" default-src * data: blob: filesystem: about: ws: 'unsafe-inline' 'unsafe-eval';
+        script-src * data: blob: 'unsafe-inline' 'unsafe-eval';
+        connect-src * data: blob: 'unsafe-inline';
+        img-src * data: blob: ;
+        style-src * data: blob: 'unsafe-inline';
+        font-src * data: blob: 'unsafe-inline';
+        ">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+        <title>Ammu-Nation</title>
+        <link rel='icon' href='assets/img/page/favicon.ico' type='image/x-icon' sizes="16x16" />
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+        <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    </head>
+
+    <body class="colorfondo">
+        
+        <header>
+        <div class="navMenu rounded-bottom">
+            <img class="float-left logo-izq img-fluid" src="assets/img/page/ammu.png">
+            <img class="float-right logo-der img-fluid" src="assets/img/page/ammu.png">
+            <h1>AMMU✰NATION</h1>
+            <nav class="navbar menu">
+                <ul class="mr-auto">
+                    <li><a class="nav-item" href="index.html">Inicio</a></li>
+                    <li><a class="nav-item" href="informacion.html">Información</a></li>
+                </ul>
+                <ul class="mx-auto">
+                                        <li><a class="nav-item" href="login.html">Iniciar sesión</a></li>
+                                    </ul>
+                <ul class="ml-auto">
+                    <li><a class="nav-item" href="carrito.html">Carrito</a></li>
+                </ul>
+            </nav>
+        </div>
+        </header>
+        <main>
+
+            <div id="register">
+                <div class="container">
+                    <div id="register-row" class="row justify-content-center align-items-center">
+                        <div id="register-column" class="col-md-6">
+                            <div id="register-box" class="col-md-12 formfix">
+                                <form id="register-form" class="form" action="http://ec2-34-232-68-85.compute-1.amazonaws.com/api/registrar/" method="POST">
+                                    <h3 class="text-center texto-form">Registrarse</h3>
+                                    <div class="form-group">
+                                        <label class="texto-form">Nombre de usuario:</label><br>
+                                        <input type="text" name="user" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="texto-form">Contraseña:</label><br>
+                                        <input type="password" name="pass" class="form-control">  
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="texto-form">Repetir contraseña:</label><br>
+                                        <input type="password" name="passver" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="submit" name="submit" class="btn btn-success btn-md" value="Registrarse">
+                                    </div>
+                                    <div id="login-link" class="text-right">
+                                        <a href="login.html" class="texto-form">Iniciar sesión</a>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+        
+        
+<footer class="page-footer">
+
+    <div class="footer-copyright text-center py-3 rounded-top">
+        &copy 2020 Copyright: Gonzalo Salazar Muñoz
+    </div>
+
+</footer>
+    <script>
+        $("#register-form").submit(function(e) {
+
+            e.preventDefault();
+
+            var form = $(this);
+            var url = form.attr('action');
+
+            $.ajax({
+                type: "POST",
+                url: url,
+                data: form.serialize(),
+                success: function(data)
+                {
+                    alert(data);
+                }
+                });
+        });
+    </script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+    </body>
+
+</html>
